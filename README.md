@@ -2,20 +2,33 @@
 # Code to host passcodes in .TXT. 
 # Pythonic Code
 
+import easygui as eg
+
+import sys
 
 Codeholder = open("PassCodeHolder.txt",'a')
 
 def reformatPCode(id,passw,urlpage):
+    
+    return (id + "-" + passw + "-" + urlpage + '\n')
 
-	return (id + "-" + passw + "-" + urlpage + '\n')
+msg = "Please Enter Information"
 
+title = "PassCodeHolder"
 
-id = input("Please input user name: ")
+fieldnames = ["ID:","Password:","url Link:"]
 
-passw = input("Please input passcode: ")
+list1 = eg.multenterbox(msg,title,fieldnames)
 
-urlpage = input("Please input URL: ")
+if list1 == None or  list1[0] == "" or list1[1] == "" or list1[2] == "":
+    
+    sys.exit()
 
+id = list1[0]
+
+passw = list1[1]
+
+urlpage = list1[2]
 
 newline = reformatPCode(id,passw,urlpage)
 
