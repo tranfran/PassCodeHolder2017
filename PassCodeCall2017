@@ -1,0 +1,27 @@
+# CallPassCodes2017
+
+	#Call Passcodes after PassCodes.py is run
+
+	#Will look through password list for key word
+
+
+import easygui as eg
+
+import sys
+
+passcodepage = open("PassCodeHolder.txt","r")
+
+
+keyword = eg.multenterbox("Please Enter Keyword","KEYWORD SEARCHER",["Key Word:"])
+
+for i in passcodepage:
+
+    # newlist = (i.split("-"))
+    
+    if keyword[0] in i:
+    
+        print(i)
+	
+        sys.exit()
+
+print("Keyword Not Found. Please Try Again.")
